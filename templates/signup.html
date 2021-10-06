@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <title>signup</title>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"> </script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">   
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> </script>  
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >  
+</head>  
+<style>  
+body {  
+  min-height: 100vh;    
+
+}  
+.table {  
+  border-spacing: 0 0.85rem !important;  
+}  
+.table .dropdown {  
+  display: inline-block;  
+}  
+.table td  
+{  
+  vertical-align: middle;  
+  margin-bottom: 10px;  
+  border: none;  
+}  
+.table th {  
+  vertical-align: middle;  
+  margin-bottom: 10px;  
+  border: none;  
+}  
+.table thead tr {  
+  border: none;  
+  font-size: 12px;  
+  letter-spacing: 1px;  
+  text-transform: uppercase;  
+  background: transparent;  
+}  
+.table thead th {  
+  border: none;  
+  font-size: 12px;  
+  letter-spacing: 1px;  
+  text-transform: uppercase;  
+  background: transparent;  
+}  
+.table td {  
+  background: #fff;  
+}  
+.table td:first-child {  
+  border-top-left-radius: 10px;  
+  border-bottom-left-radius: 10px;  
+}  
+.table td:last-child {  
+  border-top-right-radius: 10px;  
+  border-bottom-right-radius: 10px;  
+}  
+.avatar {  
+  width: 2.75rem;  
+  height: 2.75rem;  
+  line-height: 3rem;  
+  border-radius: 50%;  
+  display: inline-block;  
+  background: transparent;  
+  position: relative;  
+  text-align: center;  
+  color: #868e96;  
+  font-weight: 700;  
+  vertical-align: bottom;  
+  font-size: 1rem;  
+  -webkit-user-select: none;  
+  -moz-user-select: none;  
+  -ms-user-select: none;  
+  user-select: none;  
+}  
+.avatar-sm {  
+  width: 2.5rem;  
+  height: 2.5rem;  
+  font-size: 0.83333rem;  
+  line-height: 1.5;  
+}  
+.avatar-img {  
+  width: 100%;  
+  height: 100%;  
+  -o-object-fit: cover;  
+  object-fit: cover;  
+}  
+.avatar-blue {  
+  background-color: #c8d9f1;  
+  color: #467fcf;  
+}  
+table.dataTable.dtr-inline.collapsed  
+  > tbody  
+  > tr[role="row"]  
+  > td:first-child:before,  
+table.dataTable.dtr-inline.collapsed  
+  > tbody  
+  > tr[role="row"]  
+  > th:first-child:before {  
+  top: 28px;  
+  left: 14px;  
+  border: none;  
+  box-shadow: none;  
+}  
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child  
+{  
+  padding-left: 48px;  
+}  
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {  
+  padding-left: 48px;  
+}  
+table.dataTable > tbody > tr.child ul.dtr-details {  
+  width: 100%;  
+}  
+table.dataTable > tbody > tr.child span.dtr-title {  
+  min-width: 50%;  
+}  
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,  
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,  
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {  
+  padding: 0.75rem 1rem 0.125rem;  
+}  
+div.dataTables_wrapper div.dataTables_length label,  
+div.dataTables_wrapper div.dataTables_filter label {  
+  margin-bottom: 0;  
+}  
+  
+@media (max-width: 767px) {  
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {  
+    -ms-flex-pack: center !important;  
+    justify-content: center !important;  
+    margin-top: 1rem;  
+  }  
+}  
+.btn-icon {  
+  background: #fff;  
+}  
+.btn-icon .bx {  
+  font-size: 20px;  
+}  
+.btn .bx {  
+  vertical-align: middle;  
+  font-size: 20px;  
+}  
+.dropdown-menu {  
+  padding: 0.25rem 0;  
+}  
+.dropdown-item {  
+  padding: 0.5rem 1rem;  
+}  
+.badge {  
+  padding: 0.5em 0.75em;  
+}  
+.badge-success-alt {  
+  background-color: #d7f2c2;  
+  color: #7bd235;  
+}  
+.table a {  
+  color: #212529;  
+}  
+.table a:hover,  
+.table a:focus {  
+  text-decoration: none;  
+}  
+table.dataTable {  
+  margin-top: 12px !important;  
+}  
+.icon > .bx {  
+  display: block;  
+  min-width: 1.5em;  
+  min-height: 1.5em;  
+  text-align: center;  
+  font-size: 1.0625rem;  
+}  
+.btn {  
+  font-size: 0.9375rem;  
+  font-weight: 500;  
+  padding: 0.5rem 0.75rem;  
+}  
+.avatar-blue {  
+      background-color: #c8d9f1;  
+      color: #467fcf;  
+    }  
+    .avatar-pink {  
+      background-color: #fcd3e1;  
+      color: #f66d9b;  
+    }  
+</style>  
+<body>  
+  <div class="container" style="align-items: center; align-self: center; align-content: center;">
+  
+    <div class="row mt-5">
+      <div class="col-md-6 justify-content-between d-flex">
+        <img src="https://cdn.newsfirst.lk/english-uploads/2021/05/3b495ad0-d9210262-blood-donation-1_850x460_acf_cropped.jpg" width="100%" height="400px" alt="">
+    </div>
+    <div class="row col-md-5 bg-light p-5" style="border-radius: 20px;">
+      <form action="signup" method='post'>
+        {% csrf_token %}
+        <h1 class="text-center pl-5 pt-3 text-danger" style="font-family: 'Times New Roman', Times, serif;">Create account here</h1>
+        <div class="text-center" style="font-family: 'Times New Roman', Times, serif;">
+          <div class="mb-3"> <input type="text" class="md-3" name="first_name" placeholder="First Name" /></div>
+          <div class="mb-3"> <input type="text" class="md-3" name="last_name" placeholder="Last Name" /> </div>
+          <div class="mb-3">  <input type="text" class="md-3" name="username" placeholder="UserName" /></div>
+          <div class="mb-3"><input type="email" class="md-3" name="email" placeholder="Email" /></div>
+          <div class="mb-3">   <input type="password" name="password1" placeholder="Password" /></div>
+            <div class="mb-3">  <input type="password" name="password2" placeholder="Password (repeat)" /></div>
+            <a href=""><button class=" bg-danger text-center text-white">SIGNUP</button></a></p>
+           
+        </div>
+      </form>
+      {% for message in messages %}
+      <h4>{{message}}</h4>
+      {% endfor %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js"></script> 
+<script>  
+$(document).ready(function() {  
+  $("#example").DataTable({  
+    aaSorting: [],  
+    responsive: true,  
+    columnDefs: [  
+      {  
+        responsivePriority: 1,  
+        targets: 0  
+      },  
+      {  
+        responsivePriority: 2,  
+        targets: -1  
+      }  
+    ]  
+  });  
+  $(".dataTables_filter input")  
+    .attr("placeholder", "Search here...")  
+    .css({  
+      width: "300px",  
+      display: "inline-block"  
+    });  
+  $('[data-toggle="tooltip"]').tooltip();  
+});  
+</script>  
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $('#exampleInputPassword1').blur(function() {
+        var password = $(this).val();
+        if (password.length < 8){
+          $('#err').show();
+        }else{
+          $('#err').hide();
+        }
+      }),
+      $('#exampleInputPassword2').blur(function() {
+        var password1 = $(this).val();
+        if (password1.length <8){
+          $('#err1').show();
+        }else{
+          $('#err1').hide();
+        }
+      })
+    })
+  </script>
+</body>  
+</html>

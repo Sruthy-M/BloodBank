@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+          
+            font-family: 'Roboto', sans-serif;
+        }
+         
+        .login-box {
+            margin-top: 75px;
+            height: auto;
+            background: rgb(231, 39, 39);
+            text-align: center;
+            box-shadow: 0 13px 16px rgba(226, 243, 242, 0.16), 0 13px 16px rgba(235, 9, 20, 0.23);
+        }
+         
+   
+         
+        .login-title {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+        }
+         
+        .login-form {
+            margin-top: 25px;
+            text-align: left;
+        }
+         
+        input[type=text] {
+            background-color: #f0eeef;
+            border: none;
+            border-bottom: 2px solid #e5f0f3;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            margin-bottom: 20px;
+            padding-left: 0px;
+           
+            color: #d9e9e9;
+        }
+         
+        input[type=password] {
+            background-color: #f0eeef;
+            border: none;
+            border-bottom: 2px solid #ecf5f7;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            padding-left: 0px;
+            margin-bottom: 20px;
+            color: rgb(250, 244, 244);
+        }
+         
+        .form-group {
+            margin-bottom: 40px;
+            outline: 0px;
+        }
+         
+        .form-control:focus {
+            border-color: inherit;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-bottom: 2px solid #141818;
+            outline: 0;
+            background-color: #090c0f;
+            color: #7cf8f8;
+        }
+         
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0;
+        }
+         
+        label {
+            margin-bottom: 0px;
+        }
+         
+        .form-control-label {
+            font-size: 10px;
+            color: #131010;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+         
+        .btn-outline-primary {
+            border-color: #0DB8DE;
+            color: #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+         
+        .btn-outline-primary:hover {
+            background-color: #0DB8DE;
+            right: 0px;
+        }
+         
+        .login-btm {
+            float: left;
+        }
+         
+        .login-button {
+            padding-right: 0px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+         
+        .login-text {
+            text-align: left;
+            padding-left: 0px;
+            color: #e0f0f0;
+        }
+         
+        .loginbttm {
+            padding: 0px;
+        }
+        </style>
+    </head>
+    
+<body>
+<div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+               
+                <div class="col-lg-12 login-title">
+                    LOGIN HERE
+                </div>
+ 
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form action="login" method='post'>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <input type="text" class="form-control" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input type="password" class="form-control" name="password" i>
+                            </div>
+ 
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <a href="" class="btn-outline-primary"><input type="submit" name="login"></a>
+                                    <a href="signup" class="">Signup</a>
+                                </div>
+                            </div>
+                        </form>
+                        {% for message in messages %}
+                        <h4>{{message}}</h4>
+                        {% endfor %}
+                    </div>
+                 
+                </div>
+                <div class="col-lg-3 col-md-2">
+                    
+                </div>
+
+            </div>
+        </div>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script> 
+        
+        
+        
+        
+          <script>
+            $(document).ready(function() {
+              $('#password').blur(function() {
+                var password = $(this).val();
+                if (password.length == 0){
+                  $('#err3').show();
+                }else if(password.length< 8){
+                  $('#err1').show();
+                }
+                else{
+                  $('#err1').hide();
+                  $('#err3').hide();
+                }
+              }), $('#username').blur(function() {
+                var username = $(this).val();
+                if (username.length == 0){
+                  $('#err2').show();
+                }else{
+                  $('#err2').hide();
+                  
+                }
+              })
+              
+            })
+          </script>
+          <script>
+            $(document).on('submit','#loginForm',(e)=>{
+              e.preventDefault();
+              var username = $('#username').val()
+              var password = $('#password').val()
+              var data = {
+                  'csrfmiddlewaretoken': '{{csrf_token}}',
+                  'username': username,
+                  'password' : password
+              }
+              $.ajax({
+                URL : '/',
+                type: 'POST',
+                data:data,
+                dataType : 'json',
+                success:function(data) {
+                  if(data.success) {
+                    alert('login successful')
+                    window.location.replace('/display')
+                  }else{
+                    alert('user in unauthenticated')
+                  }
+                  
+                }
+                
+            })
+              
+            })
+            </script>
+          
+            
+            
+          
+</body>
+</html>
